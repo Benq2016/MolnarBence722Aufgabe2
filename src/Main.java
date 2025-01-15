@@ -26,6 +26,7 @@ public class Main {
                     8-Update Patient
                     9-Get Patienten
                     10-Get All Patienten
+                    11-Filter Patienten nach Diagnose
                     """);
             String input = scanner.nextLine();
             switch (input) {
@@ -100,7 +101,7 @@ public class Main {
                 case "7": {
                     System.out.println("Please enter the ID:");
                     String id = scanner.nextLine();
-                    controller.removeThing2(Integer.parseInt(id));
+                    controller.removePatient(Integer.parseInt(id));
                     break;
                 }
                 case "8": {
@@ -135,6 +136,16 @@ public class Main {
                 }
                 case "10": {
                     controller.getAllPatients().forEach(System.out::println);
+                    break;
+                }
+                case "11": {
+                    System.out.println("Please enter the diagnose:");
+                    String diagnose = scanner.nextLine();
+                    controller.filterDiagnose(diagnose).forEach(System.out::println);
+                    break;
+                }
+                default: {
+                    System.out.println("Invalid input!");
                 }
             }
         }

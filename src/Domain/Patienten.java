@@ -21,6 +21,10 @@ public class Patienten implements HasID {
         return medikamente;
     }
 
+    public String getDiagnose() {
+        return diagnose;
+    }
+
     @Override
     public Integer getID() {
         return id;

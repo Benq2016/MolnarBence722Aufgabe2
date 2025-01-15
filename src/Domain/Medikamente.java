@@ -12,6 +12,11 @@ public class Medikamente implements HasID {
         this.price = price;
         this.krankheit = krankheit;
     }
+
+    public String getKrankheit() {
+        return krankheit;
+    }
+
     @Override
     public Integer getID() {
         return id;

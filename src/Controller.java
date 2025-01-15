@@ -56,4 +56,12 @@ public class Controller {
     List<Patienten> getAllPatients(){
         return patientenRepository.getAll();
     }
+
+    List<Patienten> filterDiagnose(String diagnose){
+        return getAllPatients()
+                .stream()
+                .filter(patienten-> patienten.getDiagnose().equalsIgnoreCase(diagnose))
+                .toList();
+    }
+
 }
