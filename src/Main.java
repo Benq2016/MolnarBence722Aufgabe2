@@ -27,6 +27,7 @@ public class Main {
                     9-Get Patienten
                     10-Get All Patienten
                     11-Filter Patienten nach Diagnose
+                    12-Filter Patienten nach Krankheit
                     """);
             String input = scanner.nextLine();
             switch (input) {
@@ -144,6 +145,12 @@ public class Main {
                     controller.filterDiagnose(diagnose).forEach(System.out::println);
                     break;
                 }
+                case "12": {
+                    System.out.println("Please enter the krankheit:");
+                    String krankheit = scanner.nextLine();
+                    controller.getPatientenMitMedikamentAufKrankheit(krankheit).forEach(System.out::println);
+                    break;
+                }
                 default: {
                     System.out.println("Invalid input!");
                 }
@@ -154,7 +161,7 @@ public class Main {
 
     public static void main(String[] args) {
         controller.createMedicament(1, "Nurofen", 20, "febra");
-        controller.createMedicament(2, "Algocalmin", 26, "durer de cap");
+        controller.createMedicament(2, "Algocalmin", 26, "durere de cap");
         List<Medikamente> med1 = new ArrayList<>();
         med1.add(controller.getMedicament(1));
         List<Medikamente> med2 = new ArrayList<>();

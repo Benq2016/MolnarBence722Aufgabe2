@@ -17,6 +17,10 @@ public class Medikamente implements HasID {
         return krankheit;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
     @Override
     public Integer getID() {
         return id;

@@ -64,4 +64,13 @@ public class Controller {
                 .toList();
     }
 
+    List<Patienten> getPatientenMitMedikamentAufKrankheit(String krankheit){
+        return getAllPatients()
+                .stream()
+                .filter(patienten -> patienten.getMedikamente().stream()
+                        .anyMatch(medikamente -> medikamente.getKrankheit().equalsIgnoreCase(krankheit))
+                )
+                .toList();
+    }
+
 }
