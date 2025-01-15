@@ -28,6 +28,7 @@ public class Main {
                     10-Get All Patienten
                     11-Filter Patienten nach Diagnose
                     12-Filter Patienten nach Krankheit
+                    13-Sort Medikamente nach Patienten
                     """);
             String input = scanner.nextLine();
             switch (input) {
@@ -150,6 +151,18 @@ public class Main {
                     String krankheit = scanner.nextLine();
                     controller.getPatientenMitMedikamentAufKrankheit(krankheit).forEach(System.out::println);
                     break;
+                }
+                case "13": {
+                    controller.getAllPatients().forEach(System.out::println);
+                    System.out.println("Please enter the patient ID:");
+                    String patientID = scanner.nextLine();
+                    System.out.println("Please enter the sort type(asc/desc):");
+                    String sort = scanner.nextLine();
+                    Patienten patienten = controller.getPatient(Integer.parseInt(patientID));
+                    if (patienten != null)
+                        controller.getMedikamenteSortedNachPatienten(patienten, sort).forEach(System.out::println);
+                    else
+                        System.out.println("No Patienten with this ID found!");
                 }
                 default: {
                     System.out.println("Invalid input!");

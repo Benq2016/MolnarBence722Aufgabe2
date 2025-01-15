@@ -73,4 +73,13 @@ public class Controller {
                 .toList();
     }
 
+    List<Medikamente> getMedikamenteSortedNachPatienten(Patienten patienten, String sort){
+        return patienten.getMedikamente()
+                .stream()
+                .sorted((m1, m2)->sort.equalsIgnoreCase("asc") ?
+                        Integer.compare(m1.getPrice(), m2.getPrice()) :
+                        Integer.compare(m2.getPrice(), m1.getPrice()))
+                .toList();
+
+    }
 }
